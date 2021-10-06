@@ -2,7 +2,7 @@ package de.deluxesoftware.delivery.api.codec;
 
 import java.io.Serializable;
 
-public interface DeliveryMessage extends Serializable {
+public interface Message extends Serializable {
 
     void serialize(DeliveryByteBuf buf);
 
