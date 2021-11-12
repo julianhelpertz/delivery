@@ -1,8 +1,9 @@
 package de.deluxesoftware.delivery.api;
 
+import de.deluxesoftware.delivery.api.codec.Message;
 import io.netty.channel.group.ChannelGroup;
 
-public interface Server extends Runnable, Connector {
+public interface Server extends Runnable, ConnectionBoilerplate {
 
     void end();
 
@@ -10,7 +11,7 @@ public interface Server extends Runnable, Connector {
 
     int getCurrentConnectionCount();
 
-    void broadCastMessage();
+    void broadCastMessage(Message message);
 
     ChannelGroup getChannels();
 

@@ -1,19 +1,17 @@
 package de.deluxesoftware.delivery.api.codec;
 
-import java.util.Collection;
-
 public interface MessageFactory {
 
-    int getMessageId(Message message);
+    <T extends Message> long getMessageId(T message);
 
-    int getMessageIdByClass(Class<? extends Message> clazz);
+    <T extends Message> void removeMessage(T message);
 
-    void addMessage(Message message);
+    void addMessage(Class<? extends Message> messages);
 
-    void addMessages(Message... message);
+    Class<? extends Message> getMessageById(long messageId);
 
-    void addMessageAsClass(Collection<Class<? extends Message>> messages);
+    void removeMessageByClass(Class<? extends Message> clazz);
 
-    Class<? extends Message> getMessageById(int messageId);
+    long getMessageIdByClass(Class<? extends Message> clazz);
 
 }

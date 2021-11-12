@@ -8,13 +8,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DeliveryByteBuf {
-
-    public final ByteBuf buf;
-
-    public DeliveryByteBuf(ByteBuf buf) {
-        this.buf = buf;
-    }
+public record DeliveryByteBuf(ByteBuf buf) {
 
     public void writeString(String param) {
         if (param == null || param.isEmpty())
@@ -46,9 +40,9 @@ public class DeliveryByteBuf {
         return this.readList("'");
     }
 
-    public List<String> readList(String delimeter) {
+    public List<String> readList(String delimiter) {
         List<String> uncompressed = new ArrayList<>();
-        Collections.addAll(uncompressed, this.readString().split("'"));
+        Collections.addAll(uncompressed, this.readString().split(delimiter));
         return uncompressed;
     }
 

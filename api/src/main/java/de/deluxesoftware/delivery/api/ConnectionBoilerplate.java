@@ -7,7 +7,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 
 import java.util.logging.Logger;
 
-public interface Connector {
+public interface ConnectionBoilerplate {
 
     Logger getLogger();
 
@@ -16,8 +16,6 @@ public interface Connector {
     MessageFactory getFactory();
 
     EventLoopGroup getHiveGroup();
-
-    EventLoopGroup getDronesGroup();
 
     SimpleChannelInboundHandler<Message> getInboundHandler();
 

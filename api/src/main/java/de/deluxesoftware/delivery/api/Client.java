@@ -2,9 +2,8 @@ package de.deluxesoftware.delivery.api;
 
 import de.deluxesoftware.delivery.api.codec.Message;
 import io.netty.channel.Channel;
-import io.netty.channel.SimpleChannelInboundHandler;
 
-public interface Client extends Connector {
+public interface Client extends ConnectionBoilerplate {
 
     void connect(String address, int port);
 
